@@ -43,11 +43,12 @@ This tap:
     Create a JSON file containing the access token you just created
     and the path to one or multiple repositories that you want to extract data from. Each repo path should be space delimited. The repo path is relative to
     `https://github.com/`. For example the path for this repository is
-    `singer-io/tap-github`. 
+    `singer-io/tap-github`. You can also set `repository` to `all` to retrieve and sync all your github repos.
 
     ```json
     {"access_token": "your-access-token",
-     "repository": "singer-io/tap-github singer-io/getting-started"}
+     "repository": "singer-io/tap-github singer-io/getting-started",
+     "organization": "singer-io"}
     ```
 4. Run the tap in discovery mode to get properties.json file
 
