@@ -91,6 +91,7 @@ ENV/
 *~
 
 config.json
+catalog.json
 properties.json
 
 .vscode
