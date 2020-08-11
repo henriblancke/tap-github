@@ -115,8 +115,15 @@ def authed_get(source, url, headers={}):
             remaining = resp.headers.get('X-RateLimit-Remaining')
             time_to_reset = resp.headers.get(
                 'X-RateLimit-Reset', time.time() + 60)
-            if remaining is not None and remaining == '0':
-                time.sleep(float(time_to_reset) - time.time())
+            time_to_sleep = float(time_to_reset) - time.time()
+
+            logger.info(
+                f'Limit: {remaining} remaining, {time_to_reset} time to reset, {time_to_sleep} time to sleep.')
+
+            if remaining is not None \
+                    and int(remaining) == 0 \
+                    and time_to_sleep > 0:
+                time.sleep(time_to_sleep)
                 continue  # next attempt
 
             # Handle github's possible failures as retries
