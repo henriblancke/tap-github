@@ -123,7 +123,8 @@ def authed_get(source, url, headers={}):
             if remaining is not None \
                     and int(remaining) == 0 \
                     and time_to_sleep > 0:
-                time.sleep(time_to_sleep)
+                # Add a bit of buffer
+                time.sleep(time_to_sleep + 60)
                 continue  # next attempt
 
             # Handle github's possible failures as retries
