@@ -1,5 +1,12 @@
 # Changelog
 
+# 1.9.0
+  * Adds `issue_events` stream [#92](https://github.com/singer-io/tap-github/pull/92)
+  * Makes `project_cards` stream a child of `project_columns`[#89](https://github.com/singer-io/tap-github/pull/89)
+
+# 1.8.2
+  * Fix [issue 83](https://github.com/singer-io/tap-github/issues/83) by removing `format: date-time` from `html_url` field in `projects.json`.
+
 # 1.8.1
   * Add stream `pr_commits` back in [#81](https://github.com/singer-io/tap-github/pull/81)
 

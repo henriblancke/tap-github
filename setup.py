@@ -4,6 +4,7 @@ from setuptools import setup, find_packages
 
 setup(name='tap-github',
       version='1.9.4',
+
       description='Singer.io tap for extracting data from the GitHub API',
       author='Stitch',
       url='http://singer.io',
@@ -13,13 +14,20 @@ setup(name='tap-github',
           'singer-python==5.9.0',
           'requests==2.20.0'
       ],
+      extras_require={
+          'dev': [
+              'pylint',
+              'ipdb',
+              'nose',
+          ]
+      },
       entry_points='''
           [console_scripts]
           tap-github=tap_github:main
       ''',
       packages=['tap_github'],
       package_data = {
-          'tap_github': ['tap_github/*.json']
+          'tap_github': ['tap_github/schemas/*.json']
       },
       include_package_data=True
 )
